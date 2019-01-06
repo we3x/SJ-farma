@@ -1,8 +1,8 @@
 from mongoengine import *
-from . import ANIMALS
+
+ANIMALS = ('pig', 'cow', 'sheep')
 
 class Animal(Document):
     kind = StringField(choice=ANIMALS)
     id = StringField()
-    dad = ReferenceField(Animal)
-    mam = ReferenceField(Amimal)
+    

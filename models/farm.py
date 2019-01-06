@@ -1,11 +1,13 @@
 from mongoengine import *
-from . import ANIMALS
+from .animal import Animal
 
-class Stall(EmbededDocument):
+ANIMALS = ('pig', 'cow', 'sheep')
+
+class Stall(EmbeddedDocument):
     kind = StringField(choice=ANIMALS)
     animals = ListField(ReferenceField(Animal))
 
 
 class Farm(Document):
     name = StringField()
-    stalls = ListField(EmbeddedDocument(Stall))
+    stalls = ListField(EmbeddedDocumentField(Stall))
