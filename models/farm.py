@@ -11,3 +11,6 @@ class Stall(EmbeddedDocument):
 class Farm(Document):
     name = StringField()
     stalls = ListField(EmbeddedDocumentField(Stall))
+
+    def __repr__(self):
+        return 'Farm: %s' % self.name

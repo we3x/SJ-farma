@@ -10,3 +10,6 @@ class Vet(User):
     station_name = StringField(max_length=64)
     services = ListField(EmbeddedDocumentField(Service))
 
+    def __repr__(self):
+        return "Vet: %s" % self.username+ ' ' +self.station_name
+

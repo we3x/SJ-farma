@@ -1,4 +1,5 @@
 from mongoengine import *
+from controllers.main import MainController
 
 def init_db():
     connect('sj-farm')
@@ -6,6 +7,7 @@ def init_db():
 
 def main():
     init_db()
+    MainController()
 
 if __name__ == "__main__":
     main()
