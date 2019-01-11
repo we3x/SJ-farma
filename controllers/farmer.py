@@ -1,0 +1,2 @@
+class FarmerController(object):
+    pass

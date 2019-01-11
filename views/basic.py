@@ -24,9 +24,9 @@ class BasicView(object):
     @staticmethod
     def choice_auth():
         message = """
-        1. Prijavljiviti se
-        2. Registrovati se
-        3. Izlazak iz sistema
+        1. (login) Prijavljiviti se
+        2. (register) Registrovati se
+        3. (exit) Izlazak iz sistema
         """
         os.system('clear')
         print(message)
