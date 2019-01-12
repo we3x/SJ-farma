@@ -1,7 +1,6 @@
 from mongoengine import *
-from constants import ANIMALS
 
-class Animal(Document):
-    kind = StringField(choice=ANIMALS)
+class Animal(EmbeddedDocument):
+    name = StringField(max_length=32)
     id = StringField()
     

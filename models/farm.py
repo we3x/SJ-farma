@@ -5,7 +5,7 @@ from constants import ANIMALS
 class Stall(EmbeddedDocument):
     name = StringField(max_length=32)
     kind = StringField(choice=ANIMALS)
-    animals = ListField(ReferenceField(Animal))
+    animals = ListField(EmbeddedDocumentField(Animal))
 
 
 class Farm(Document):
