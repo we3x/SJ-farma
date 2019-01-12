@@ -47,6 +47,14 @@ class FarmView(object):
             stall_name = self.choice_stall()
         return stall[0]
 
+    def choice_animal(self, animals):
+        self.animal_list(animals)
+        animal_id = input("Unesite oznaku zivotinje:")
+        animal = [animal for animal in animals if animal['id'] == animal_id]
+        while animal == []:
+            animal = self.choice_animal(animals)
+        return animal[0]
+
     def create_animal_form(self):
         data = {}
         data['name'] = input("Unesite ime zivotinje: ")
@@ -65,6 +73,7 @@ class FarmView(object):
         while animal_type not in ANIMALS:
             animal_type = self.choice_type_animal()
         return animal_type
+
 
     def stall_list(self):
         os.system('clear')

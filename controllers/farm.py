@@ -13,7 +13,8 @@ class FarmController(object):
             'create_animal': self.create_animal,
             'log_out': '',
             'new_stall': self.new_stall,
-            'stall_list': self.stall_list
+            'stall_list': self.stall_list,
+            'choice_animal': self.choice_animal
         }
         self.farm_menu()
 
@@ -29,6 +30,12 @@ class FarmController(object):
     def animal_list(self):
         stall = self.view.choice_stall()
         self.view.animal_list(stall.animals)
+        input()
+
+    def choice_animal(self):
+        stall = self.view.choice_stall()
+        animal = self.view.choice_animal(stall.animals)
+        print(animal)
         input()
 
 
