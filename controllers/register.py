@@ -26,7 +26,7 @@ class RegisterController(object):
         data = self.view.vet_form()
         user = Vet(**data)
         user.save_user()
-        return dict(user=user, type="Vet")
+        return dict(user=user, user_type="Vet")
 
     def create_farmer(self):
         data = self.view.farmer_form()
@@ -36,7 +36,7 @@ class RegisterController(object):
         farm.save()
         user = Farmer(farm=farm,**data)
         user.save_user()
-        return dict(user=user, type="Farmer")
+        return dict(user=user, user_type="Farmer")
 
     def get_user(self):
         return self.user

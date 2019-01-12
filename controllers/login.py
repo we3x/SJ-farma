@@ -16,5 +16,5 @@ class LoginController():
                 return
 
     def get_user(self):
-        return dict(user=self.user, type=type(self.user).__name__)
+        return dict(user=self.user, user_type=type(self.user).__name__)
         

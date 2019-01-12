@@ -19,7 +19,7 @@ class MainController(object):
         user = self.auth.get_user()
         if user['user'] == None:
             self.__init__()
-        self.controller = self.controllers[user['type']]()
+        self.controller = self.controllers[user['user_type']](**user)
 
     def exit(self):
         self.view.exit_message()
