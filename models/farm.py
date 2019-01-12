@@ -1,9 +1,9 @@
 from mongoengine import *
 from .animal import Animal
-
-ANIMALS = ('pig', 'cow', 'sheep')
+from constants import ANIMALS
 
 class Stall(EmbeddedDocument):
+    name = StringField(max_length=32)
     kind = StringField(choice=ANIMALS)
     animals = ListField(ReferenceField(Animal))
 

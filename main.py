@@ -3,6 +3,9 @@ from mongoengine import signals
 from models.user import User
 from controllers.main import MainController
 
+def animals():
+    return ('pig', 'cow', 'sheep')
+
 def init_db():
     connect('_test_sj_farm')
     print("init db complate")

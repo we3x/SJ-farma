@@ -1,0 +1,1 @@
+ANIMALS = ('pig', 'cow', 'sheep')

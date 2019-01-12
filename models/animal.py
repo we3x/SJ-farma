@@ -1,6 +1,5 @@
 from mongoengine import *
-
-ANIMALS = ('pig', 'cow', 'sheep')
+from constants import ANIMALS
 
 class Animal(Document):
     kind = StringField(choice=ANIMALS)
