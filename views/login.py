@@ -10,4 +10,9 @@ class LoginView(object):
         return (email, password)
 
     def wrong_user(self):
-        pass
+        print("Pogresni podatci")
+        option = input("Zelite li da pokusate ponovo [Y/n]: ")
+        if option.upper() == "N":
+            return option
+        else:
+            return "Y"

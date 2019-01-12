@@ -1,2 +1,3 @@
 class FarmerController(object):
-    pass
+    def __init__(self):
+        input("FarmerController")

@@ -30,5 +30,7 @@ class User(Document):
         user = User.objects.get(email=email)
         if user.check_password(password):
             return user
+        else:
+            raise Exception("Invalid passowrd")
             
 

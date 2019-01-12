@@ -4,8 +4,7 @@ from models.user import User
 from controllers.main import MainController
 
 def init_db():
-    connect('sj-farm')
-    signals.pre_save.connect(User.pre_save, sender=User)
+    connect('_test_sj_farm')
     print("init db complate")
 
 def main():

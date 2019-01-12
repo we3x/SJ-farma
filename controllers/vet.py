@@ -1,2 +1,3 @@
 class VetController(object):
-    pass
+    def __init__(self):
+        input("VetController")

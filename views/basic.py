@@ -30,3 +30,5 @@ class BasicView(object):
         """
         os.system('clear')
         print(message)
+        choice = input(":")
+        return choice
