@@ -44,7 +44,9 @@ class FarmView(object):
         stall_name = input(":")
         stall = [stall for stall in self.farm.stalls if stall["name"] == stall_name]
         while stall == []:
-            stall_name = self.choice_stall()
+            self.stall_list()
+            stall_name = input(":")
+            stall = [stall for stall in self.farm.stalls if stall["name"] == stall_name]
         return stall[0]
 
     def choice_animal(self, animals):
