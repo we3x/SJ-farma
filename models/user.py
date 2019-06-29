@@ -32,5 +32,4 @@ class User(Document):
             return user
         else:
             raise Exception("Invalid passowrd")
-            
 

@@ -1,10 +1,8 @@
 import os
-class RegisterView(object):
-    def __init__(self):
-        os.system("clear")
-        print("Register View")
+class RegisterView():
 
-    def choice_user(self):
+    @classmethod
+    def choice_user(cls):
         message = """
         Izaberite tip korisnika:
         Farmer
@@ -14,8 +12,9 @@ class RegisterView(object):
         print(message)
         choice = input(":")
         return choice
-    
-    def vet_form(self):
+
+    @classmethod
+    def vet_form(cls):
         os.system('clear')
         print("Kreiranje novog Veterinara")
         data = {}
@@ -26,7 +25,8 @@ class RegisterView(object):
         data['station_name'] = input("ime stanice: ")
         return data
 
-    def farmer_form(self):
+    @classmethod
+    def farmer_form(cls):
         os.system('clear')
         print("Kreiranje novog Farmera")
         data = {}

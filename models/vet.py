@@ -11,5 +11,5 @@ class Vet(User):
     services = ListField(EmbeddedDocumentField(Service))
 
     def __repr__(self):
-        return "Vet: %s" % self.username+ ' ' +self.station_name
+        return "Vet: " +self.station_name
 

@@ -1,15 +1,15 @@
 import os
-class LoginView(object):
-    def __init__(self):
-        os.system("clear")
-        print("Login View")
+class LoginView():
 
-    def login_form(self):
+    @classmethod
+    def login_form(cls):
+        os.system("clear")
         email = input("Unesite email: ")
         password = input("Unesite password: ")
         return (email, password)
 
-    def wrong_user(self):
+    @classmethod
+    def wrong_user(cls):
         print("Pogresni podatci")
         option = input("Zelite li da pokusate ponovo [Y/n]: ")
         if option.upper() == "N":

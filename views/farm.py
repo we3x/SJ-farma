@@ -1,27 +1,28 @@
 import os
 from constants import ANIMALS
-     
-class FarmView(object):
-    def __init__(self, farm, farmer):
-        self.farmer = farmer
-        self.farm = farm
+from terminaltables import AsciiTable
 
-    def show_menu(self):
-        self.init_message()
-        self.show_options()
+class FarmView(object):
+
+    @classmethod
+    def show_menu(cls, farm, farmer):
+        cls.init_message(farm.name, farmer.email)
+        cls.show_options()
         option = input(":")
         return option
 
 
-    def init_message(self):
+    @classmethod
+    def init_message(cls, farm_name, farmer_email):
         message = """
         Farma: {}
         Korisnik: {}
-        """.format(self.farm.name, self.farmer.email)
+        """.format(farm_name, farmer_email)
         os.system('clear')
         print(message)
 
-    def show_options(self):
+    @classmethod
+    def show_options(cls):
         message = """
         1. (new_stall) Kreiranje nove stale
         2. (stall_list) Prikaz svih stala
@@ -31,40 +32,45 @@ class FarmView(object):
         """
         print(message)
 
-    def create_stall(self):
+    @classmethod
+    def create_stall(cls):
         os.system('clear')
         data = {}
         data['name'] = input("Unesite naziv stale: ")
         print("Izaberite tip zivotinje")
-        data['kind'] = self.choice_type_animal()
+        data['kind'] = cls.choice_type_animal()
         return data
 
-    def choice_stall(self):
-        self.stall_list()
+    @classmethod
+    def choice_stall(cls, stalls):
+        cls.stall_list(stalls)
         stall_name = input(":")
-        stall = [stall for stall in self.farm.stalls if stall["name"] == stall_name]
+        stall = [stall for stall in stalls if stall["name"] == stall_name]
         while stall == []:
-            self.stall_list()
+            stall_list()
             stall_name = input(":")
-            stall = [stall for stall in self.farm.stalls if stall["name"] == stall_name]
+            stall = [stall for stall in stalls if stall["name"] == stall_name]
         return stall[0]
 
-    def choice_animal(self, animals):
-        self.animal_list(animals)
+    @classmethod
+    def choice_animal(cls, animals):
+        cls.animal_list(animals)
         animal_id = input("Unesite oznaku zivotinje:")
         animal = [animal for animal in animals if animal['id'] == animal_id]
         while animal == []:
-            animal = self.choice_animal(animals)
+            animal = choice_animal(animals)
         return animal[0]
 
-    def create_animal_form(self):
+    @classmethod
+    def create_animal_form(cls):
         data = {}
         data['name'] = input("Unesite ime zivotinje: ")
         data['id'] = input("Unesite identifikacionu oznaku zivotinje: ")
         return data
 
 
-    def choice_type_animal(self):
+    @classmethod
+    def choice_type_animal(cls):
         message = """
         1. (pig) Svinja
         2. (sheep) Ovca
@@ -73,20 +79,24 @@ class FarmView(object):
         print(message)
         animal_type = input(":")
         while animal_type not in ANIMALS:
-            animal_type = self.choice_type_animal()
+            animal_type = cls.choice_type_animal()
         return animal_type
 
 
-    def stall_list(self):
+    @classmethod
+    def stall_list(cls, stalls):
         os.system('clear')
-        for item in self.farm.stalls:
-            print("{} - {}".format(item.name, item.kind))
-    
-    def animal_list(self, animals):
+        table_data = [["Naziv", "Tip zivotinje"]]
+        for item in stalls:
+            table_data.append([item.name, item.kind])
+        table_view = AsciiTable(table_data)
+        print(table_view.table)
+
+    @classmethod
+    def animal_list(cls, animals):
         os.system('clear')
+        table_data = [["Naziv", "Identifikaciona oznaka"]]
         for animal in animals:
-            print("{} - {}".format(animal.name, animal.id))
-
-    
-
-    
+            table_data.append([animal.name, animal.id])
+        table_view = AsciiTable(table_data)
+        print(table_view.table)

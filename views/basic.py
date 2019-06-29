@@ -3,8 +3,8 @@ import time
 
 class BasicView(object):
 
-    @staticmethod
-    def exit_message():
+    @classmethod
+    def exit_message(cls):
         os.system('clear')
         message = """
         Dovidjenja
@@ -12,8 +12,8 @@ class BasicView(object):
         print(message)
         time.sleep(1)
 
-    @staticmethod
-    def choice_auth():
+    @classmethod
+    def choice_auth(cls):
         message = """
         1. (login) Prijavljiviti se
         2. (register) Registrovati se
